@@ -1,0 +1,56 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.a{
+  background-color: red($color: #c31616) !important;
+}
+
+ion-item{
+  margin: 10px;
+  --background: rgb(219,219,219) !important;
+
+}
+.b {
+  margin-right: 5px;
+}
+
+table {
+  margin-top: 10px;
+  border: 5px solid red;
+}
+
+th{
+  color: rgb(45, 15, 178);
+  border: 5px solid red($color: #8a0808)
+}
+
+td{
+  text-align: center;
+  color: rgb(149, 22, 101);
+  border: 5px solid green;
+}

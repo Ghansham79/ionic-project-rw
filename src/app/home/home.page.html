@@ -1,0 +1,319 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center; background-color: rgb(118, 214, 118); color: red;">
+     <h1> registration form {{uemail}} </h1>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar class="a">
+      <ion-title size="large">test</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- <ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-input class="a" label="Text input" placeholder="Enter text"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input label="Number input" type="number" placeholder="000"></ion-input>
+      </ion-item>
+  
+      <ion-item style="width: 50%;">
+        <ion-input label="Password input" type="password" value="password"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input label="Email input" type="email" placeholder="email@domain.com"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input label="Telephone input" type="tel" placeholder="888-888-8888"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-list> -->
+
+  <!-- <ion-list>
+    <ion-item>
+      <ion-input label=" First Name " [(ngModel)]="user.name" placeholder="Enter the First Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label=" Last Name " [(ngModel)]="user.lname" placeholder="Enter the Last Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label=" Mobile No" [(ngModel)]="user.mno" placeholder="Enter the Mobile Number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Education" [(ngModel)]="user.education" placeholder="Favorite Subject">
+        <ion-select-option value="Bcs">BCS</ion-select-option>
+        <ion-select-option value="Bca">BCA</ion-select-option>
+        <ion-select-option value="Mca">MCA</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-input label=" Email " type="email"  [(ngModel)]="user.email" name="email" [(ngModel)]="user.email" placeholder="Enter the Mobile Number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Birth Date"  type="date" [(ngModel)]="user.bdate" placeholder="Enter the Mobile Number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="gender" [(ngModel)]="user.gender" placeholder="select the gender"></ion-input>
+      <label for="male" class="b">Male</label>
+        <input type="radio"class="b"  name="gender" id="male" value="male" checked>
+        <label for="female" class="b">Female</label>
+        <input type="radio" class="b" name="gender" id="female" value="female">
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea label="Address" [(ngModel)]="user.address" placeholder="please Enter Address"></ion-textarea>
+    </ion-item>
+  </ion-list> -->
+  
+  <!-- Reactive Forms for validation:  -->
+  <!-- <ion-content>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label position="stacked">Name</ion-label>
+        <ion-input formControlName="name" type="text"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input formControlName="email" type="email"></ion-input>
+      </ion-item>
+  
+      <ion-button expand="full" type="submit" [disabled]="myForm.invalid">Submit</ion-button>
+    </form>
+  </ion-content> -->
+  
+  <!-- Template-driven Forms Validation in Ionic -->
+   <ion-header>
+  <ion-toolbar>
+    <ion-title>Template-driven Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content>
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input [(ngModel)]="name" name="name" required minlength="3" #nameCtrl="ngModel"></ion-input>
+    </ion-item>
+    <div *ngIf="nameCtrl?.invalid && submitted">
+      <ion-text color="danger">
+        <p *ngIf="nameCtrl?.errors?.['required']">Name is required</p>
+        <p *ngIf="nameCtrl?.errors?.['minlength']">Name must be at least 3 characters long</p>
+      </ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="email" name="email" type="email" required #emailCtrl="ngModel"></ion-input>
+    </ion-item>
+    <div *ngIf="emailCtrl?.invalid && submitted">
+      <ion-text color="danger">
+        <p *ngIf="emailCtrl?.errors?.['required']">Email is required</p>
+        <p *ngIf="emailCtrl?.errors?.['email']">Please enter a valid email address</p>
+      </ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Education</ion-label>
+      <ion-select [(ngModel)]="user.education" placeholder="Favorite Subject">
+        <ion-select-option value="Bcs">BCS</ion-select-option>
+        <ion-select-option value="Bca">BCA</ion-select-option>
+        <ion-select-option value="Mca">MCA</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <div *ngIf="emailCtrl?.invalid && submitted">
+      <ion-text color="danger">
+        <p *ngIf="emailCtrl?.errors?.['required']">Education is required</p>
+        <p *ngIf="emailCtrl?.errors?.['email']">Please enter a valid email address</p>
+      </ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Phone Number</ion-label>
+      <ion-input [(ngModel)]="phonen" name="phonen" type="number" required minlength="10" #emailCtrl="ngModel"></ion-input>
+    </ion-item>
+    <div *ngIf="nameCtrl?.invalid && submitted">
+      <ion-text color="danger">
+        <p *ngIf="nameCtrl?.errors?.['required']">Phone Number is required</p>
+        <p *ngIf="nameCtrl?.errors?.['minlength']">Name must be at least 10 characters long</p>
+      </ion-text>
+    </div>
+    <ion-item>
+      <ion-label position="floating">Date</ion-label>
+      <ion-input [(ngModel)]="fdate" name="fdate" type="date" required  #emailCtrl="ngModel"></ion-input>
+    </ion-item>
+    <div *ngIf="nameCtrl?.invalid && submitted">
+      <ion-text color="danger">
+        <p *ngIf="nameCtrl?.errors?.['required']">date is required</p>
+        <p *ngIf="nameCtrl?.errors?.['minlength']">Name must be at least 10 characters long</p>
+      </ion-text>
+    </div>
+    <ion-item>
+      <ion-label position="floating">Select the Gender</ion-label>
+      <ion-input [(ngModel)]="gender" name="gender" type="string" required ></ion-input>
+      <label for="male" class="b">Male</label>
+        <input type="radio"class="b"  name="gender" id="male" value="male" checked>
+        <label for="female" class="b">Female</label>
+        <input type="radio" class="b" name="gender" id="female" value="female">
+    </ion-item>
+    <div *ngIf="nameCtrl?.invalid && submitted">
+      <ion-text color="danger">
+        <p *ngIf="nameCtrl?.errors?.['required']">Gender is required</p>
+        <p *ngIf="nameCtrl?.errors?.['minlength']">Address must be at least 10 characters long</p>
+      </ion-text>
+    </div>
+    <ion-item>
+      <ion-label position="floating">Address</ion-label>
+      <ion-input [(ngModel)]="address" name="address" type="string" required  #addressCtrl="ngModel"></ion-input>
+    </ion-item>
+    <div *ngIf="addressCtrl?.invalid && submitted">
+      <ion-text color="danger">
+        <p *ngIf="addressCtrl?.errors?.['required']">Address is required</p>
+        <p *ngIf="addressCtrl?.errors?.['minlength']">Address must be at least 10 characters long</p>
+      </ion-text>
+    </div>
+
+    <ion-button type="submit" [disabled]="" (click)="validate_form()">Submit</ion-button>
+  </form>
+</ion-content> -->
+
+<ion-content>
+  <form (ngSubmit)="onSubmit()" #form="ngForm" novalidate>
+    <!-- Name Field -->
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input [(ngModel)]="formData.name" name="name" required minlength="3" #nameCtrl="ngModel"></ion-input>
+    </ion-item>
+    <div *ngIf="nameCtrl.invalid && submitted">
+      <ion-text color="danger">
+        <p *ngIf="nameCtrl.errors?.['required']">Name is required</p>
+        <p *ngIf="nameCtrl.errors?.['minlength']">Name must be at least 3 characters long</p>
+      </ion-text>
+    </div>
+
+    <!-- Email Field -->
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="formData.email" name="email" type="email" required #emailCtrl="ngModel"></ion-input>
+    </ion-item>
+    <div *ngIf="emailCtrl.invalid && submitted">
+      <ion-text color="danger">
+        <p *ngIf="emailCtrl.errors?.['required']">Email is required</p>
+        <p *ngIf="emailCtrl.errors?.['email']">Please enter a valid email address</p>
+      </ion-text>
+    </div>
+
+    <!-- Education Field -->
+    <ion-item>
+      <ion-label position="floating">Education</ion-label>
+      <ion-select [(ngModel)]="formData.education" name="education" required #educationCtrl="ngModel">
+        <ion-select-option value="BCS">BCS</ion-select-option>
+        <ion-select-option value="BCA">BCA</ion-select-option>
+        <ion-select-option value="MCA">MCA</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <div *ngIf="educationCtrl.invalid && submitted">
+      <ion-text color="danger">
+        <p>Education is required</p>
+      </ion-text>
+    </div>
+
+    <!-- Phone Number Field -->
+    <ion-item>
+      <ion-label position="floating">Phone Number</ion-label>
+      <ion-input [(ngModel)]="formData.phone" name="phone" type="number" required minlength="10" #phoneCtrl="ngModel"></ion-input>
+    </ion-item>
+    <div *ngIf="phoneCtrl.invalid && submitted">
+      <ion-text color="danger">
+        <p *ngIf="phoneCtrl.errors?.['required']">Phone Number is required</p>
+        <p *ngIf="phoneCtrl.errors?.['minlength']">Phone Number must be at least 10 characters long</p>
+      </ion-text>
+    </div>
+
+    <!-- Gender Field -->
+    <ion-item>
+      <ion-label>Select Gender</ion-label>
+      <ion-radio-group [(ngModel)]="formData.gender" name="gender" required>
+        <ion-item>
+          <ion-label>Male</ion-label>
+          <ion-radio slot="start" value="Male"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Female</ion-label>
+          <ion-radio slot="start" value="Female"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-item>
+    <div *ngIf="!formData.gender && submitted">
+      <ion-text color="danger">
+        <p>Gender is required</p>
+      </ion-text>
+    </div>
+
+    <!-- Address Field -->
+    <ion-item>
+      <ion-label position="floating">Address</ion-label>
+      <ion-input [(ngModel)]="formData.address" name="address" type="text" required minlength="3" #addressCtrl="ngModel"></ion-input>
+    </ion-item>
+    <div *ngIf="addressCtrl.invalid && submitted">
+      <ion-text color="danger">
+        <p *ngIf="addressCtrl.errors?.['required']">Address is required</p>
+        <p *ngIf="addressCtrl.errors?.['minlength']">Address must be at least 10 characters long</p>
+      </ion-text>
+    </div>
+
+    <!-- password Feilsd -->
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [(ngModel)]="formData.password" name="password" type="text" required minlength="3" #addressCtrl="ngModel"></ion-input>
+    </ion-item>
+    <div *ngIf="addressCtrl.invalid && submitted">
+      <ion-text color="danger">
+        <p *ngIf="addressCtrl.errors?.['required']">Password is Required</p>
+        <p *ngIf="addressCtrl.errors?.['minlength']">password must be at least 10 characters long</p>
+      </ion-text>
+    </div>
+
+    <!-- Submit Button -->
+    <ion-button expand="block" type="submit">Submit</ion-button>
+  </form>
+
+  <!-- Display Stored Data -->
+  <div>
+    <table style=" width: 100%; text-align: center;">
+      <tr>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Education</td>
+        <td>Phone</td>
+        <td>Gender</td>
+        <td>Address</td>
+        <td>password</td>
+      </tr>
+      <tr *ngFor="let data of dataArray">
+        <td>{{data.name}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.education}}</td>
+        <td>{{data.phone}}</td>
+        <td>{{data.gender}}</td>
+        <td>{{data.address}}</td>
+        <td>{{data.password}}</td>
+      </tr>
+    </table>
+  </div>
+</ion-content>
+
+  <!-- <ion-button (click)="submit(user)" expand="block">Save</ion-button>
+  <ion-button expand="full">Cancel</ion-button> -->
+<p>
+</ion-content>
